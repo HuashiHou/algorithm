@@ -25,19 +25,25 @@ public class LinkedListReverse {
         return reHead;
     }
 
+    /**
+     * 不使用递归的方法，从前向后进行两两进行交换
+     * @param head
+     * @return
+     */
     static ListNode reverse1(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
 
-        ListNode prev = head;
-        ListNode cur = head.next;
-        ListNode temp = null;
+        ListNode prev = head;// 前一个节点
+        ListNode cur = head.next;// 当前节点
+        ListNode temp = null;// 下一个节点
 
         while (cur != null) {
-            temp = cur.next;
-            cur.next = prev;
+            temp = cur.next;// 暂存下一个节点，后面赋值回来
+            cur.next = prev;// 最关键的一句，当前节点next指向前一个节点，即反转了方向
 
+            // 移动指针 整体向后移，当前节点变成前节点，下一节点变成当前节点
             prev = cur;
             cur = temp;
         }
