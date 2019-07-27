@@ -51,11 +51,41 @@ public class PalindromeLinkedList {
         return true;
     }
 
+    /**
+     * 使用位运算
+     * @param head
+     * @return
+     */
+    static boolean isPalindrome2(ListNode head) {
+        int len = 1;
+        ListNode node = head;
+        int temp = head.val;
+        while (node.next != null) {
+            temp = temp ^ node.next.val;
+            node = node.next;
+            len++;
+        }
+
+        if(temp==0) {
+            return true;
+        }
+        if(len%2==0){
+            if(temp==0)
+                return true;
+            else
+                return false;
+        } else {
+            //奇数情况
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         ListNode head = new ListNode('a');
-        head.next(new ListNode('b')).next(new ListNode('a'));
+        head.next(new ListNode('a')).next(new ListNode('b')).next(new ListNode('b'));
         System.out.println(head);
-        System.out.println(isPalindrome(head));
+//        System.out.println(isPalindrome(head));
+        System.out.println(isPalindrome2(head));
     }
 }
 

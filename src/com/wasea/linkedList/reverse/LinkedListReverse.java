@@ -35,9 +35,9 @@ public class LinkedListReverse {
             return head;
         }
 
-        ListNode prev = head;// 前一个节点
-        ListNode cur = head.next;// 当前节点
-        ListNode temp = null;// 下一个节点
+        ListNode prev = head;// 代表前一个节点
+        ListNode cur = head.next;// 代表当前节点
+        ListNode temp = null;// 代表下一个节点
 
         while (cur != null) {
             temp = cur.next;// 暂存下一个节点，后面赋值回来
@@ -51,6 +51,7 @@ public class LinkedListReverse {
         head.next = null;
         return prev;
     }
+
 
 
     public static void main(String[] args) {
